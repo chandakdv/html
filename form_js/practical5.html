@@ -1,0 +1,321 @@
+<html>
+<head>
+<title>Exam Registration</title>
+</head>
+<body style="background-color: rgb(136, 167, 178);">
+<h2 style = "text-align:center;color:rgb(136, 167, 178);background-color: rgb(195, 207, 122); ">
+<b>ONLINE REGISTRATION FORM</b></h2>
+<br>
+<form style="border: 4px solid black;margin-left: 200px;margin-right: 200px;" action = "reg.html" name="register">
+<h2 style = "text-align:center;color:rgb(136, 167, 178);background-color: rgb(195, 207, 122); ">
+<b>PERSONAL INFORMATION</b></h2>
+<table align = "center" style = "font-size:20px">
+<tr>
+<td style="font-size: 25px;"><b>Name:</b></td>
+<td><input type = "text" name = "sname" ><p id="nval" style=display:inline;"></p></td>
+</tr>
+<tr>
+<td style="font-size: 25px;"><b>Email:</b></td>
+<td><input type = "email" name = "Email" maxlength = 30/><p id="eval" style="display:inline;"></p></td>
+</tr>
+<tr>
+<td style="font-size: 25px;"><b>Contact No:</b></td>
+<td><input type = "text" name = "Contact" maxlength = 10/><p id="cval" style="display:inline;"></p></td>
+</tr>
+<tr>
+<td style="font-size: 25px;"><b>Age:</b></td>
+<td><input type = "text" name = "Age" maxlength = 2/><p id="aval" style="display:inline;"></p></td>
+</tr>
+</table>
+<h2 style = "text-align:center;color:rgb(235, 235, 235);
+background-color:rgb(195, 207, 122); ">
+<b>EDUCATIONAL DETAILS</b></h2>
+<table align = "center" style = "font-size:20px">
+<tr>
+<td style="font-size: 25px;"><b>X
+Aggregate/CGPA:</b></td>
+<td><input type = "text" name = "xmarks" maxlength =
+4/><p id="xm" style="display:inline;"></p></td>
+</tr>
+<tr>
+<td style="font-size: 25px;"><b>XII
+Aggregate/CGPA:</b></td>
+<td><input type = "text" name = "xiimarks" maxlength =
+4/><p id="xiim" style="display:inline;"></p></td>
+</tr>
+<tr>
+<td style="font-size: 25px;"><b>Graduation
+Branch:</b></td>
+<td><input type = "text" name = "branch" /><p
+id="gbranch" style="display:inline;"></p></td>
+</tr>
+<tr>
+<td style="font-size: 25px;"><b>Passing Year:</b></td>
+<td><input type = "text" name = "pyear" maxlength =
+4/><p id="passy" style="display:inline;"></p></td>
+</tr>
+</table>
+<h2 style = "text-align:center;color:rgb(136, 167, 178);
+background-color: rgb(195, 207, 122);">
+<b>COURSES OFFERED</b></h2>
+<table align = "center" style = "font-size:20px">
+<tr>
+<td style="font-size: 25px;"><b>Choose Avaliable Courses:</b></td>
+<td style="font-size: 25px;"><input type="checkbox" name="html" value="html"><b>HTML</b><br>
+<input type="checkbox" name="javascript" value="javascript"><b>Javascript</b><br>
+<input type="checkbox" name="css" value="css"><b>Css</b><br>
+<input type="checkbox" name="sql" value="sql"><b>Sql</b><br><p id="course" style="display:inline;"></p></td>
+</tr>
+
+
+
+<tr>
+<td style="font-size: 25px;"><b>Duration of Course:</b></td>
+<td style="font-size: 25px;"><input type="radio" name="d" value="we4"><b>4 Weeks</b><br>
+<input type="radio" name="d" value="we4"><b>8 Weeks</b><br>
+<input type="radio" name="d" value="we4"><b>12 Weeks</b><br><p id="dur" style="display:inline;"></p></td>
+</tr>
+</table>
+
+
+<h2 style = "text-align:center;color:rgb(136, 167, 178);
+background-color:rgb(195, 207, 122); ">
+<b>PAYMENT DETAILS</b></h2>
+<table align = "center" style = "font-size:20px">
+<tr>
+<td style="font-size: 25px;"><b>Card Number:</b></td>
+<td><input type = "text" name = "card" maxlength =16/><p id="cardno" style="display:inline;"></p></td>
+</tr>
+<tr>
+<td align = "center" style="font-size:25px;"><b>OR</b></td>
+</tr>
+<tr>
+<td style="font-size: 25px;"><b>UPI ID:</b></td>
+<td><input type = "text" name = "upi"/><p
+id="upiid" style="display:inline;"></p></td>
+</tr>
+</table>
+<h1 style="margin-left:400px;"><button><input style="color:black;" type = "submit"name = "submit" id="btn" value = "Submit"
+disabled/></button><br></h1>
+</form>
+<script>
+var nval = document.getElementById("nval");
+var emval = document.getElementById("eval");
+var contact = document.getElementById("cval");
+var age = document.getElementById("aval");
+var xmar = document.getElementById("xm");
+var xiimar = document.getElementById("xiim");
+var branch = document.getElementById("gbranch");
+var pass = document.getElementById("passy");
+var cardd = document.getElementById("cardno");
+var upii = document.getElementById("upiid");
+
+
+
+document.forms["register"]["sname"].addEventListener("focus",nameReq);
+document.forms["register"]["Email"].addEventListener("focus",emailReq);
+document.forms["register"]["Contact"].addEventListener("focus",contactReq);
+document.forms["register"]["Age"].addEventListener("focus",ageReq);
+document.forms["register"]["xmarks"].addEventListener("focus",xReq);
+document.forms["register"]["xiimarks"].addEventListener("focus",xiiReq);
+document.forms["register"]["card"].addEventListener("focus",cardReq);
+document.forms["register"]["upi"].addEventListener("focus",upiReq);
+document.forms["register"]["sname"].addEventListener("blur",valName);
+document.forms["register"]["Email"].addEventListener("blur",valEmail);
+document.forms["register"]["Contact"].addEventListener("blur",valContact);
+document.forms["register"]["Age"].addEventListener("blur",valage);
+document.forms["register"]["xmarks"].addEventListener("blur",xval);
+document.forms["register"]["xiimarks"].addEventListener("blur",xiival);
+document.forms["register"]["card"].addEventListener("blur",cardval);
+document.forms["register"]["upi"].addEventListener("blur",upival);
+
+
+
+
+
+let isNameValid = false, isEmailValid = false, isContactValid
+= false,isAgeValid = false;
+let isxValid = false, isxiiValid = false,iscardValid =
+false,isupiValid = false;
+let formelems = document.forms["register"].elements;
+for (var i = 0; i < formelems.length; i++) {
+formelems[i].addEventListener("blur",checkAll);
+}
+var z= false;
+function checkAll(){
+if(isNameValid && isContactValid && isEmailValid &&
+isAgeValid && isxValid && isxiiValid && (iscardValid || isupiValid))
+{var z= true;}
+if(z==true){
+document.getElementById("btn").disabled = false;}
+}
+function nameReq(){
+nval.innerHTML = " Enter Valid Name";
+nval.style.color = "green";
+}
+function xReq(){
+nval.innerHTML = " Enter Valid Aggregate/CGPA";
+nval.style.color = "green";
+}
+function xiiReq(){
+nval.innerHTML = " Enter Valid Aggregate/CGPA";
+nval.style.color = "green";
+}
+function cardReq(){
+cardd.innerHTML = " Enter Valid Card Number";
+cardd.style.color = "green";
+}
+function upiReq(){
+upii.innerHTML = " Enter Valid UPI ID";
+upii.style.color = "green";
+}
+function emailReq(){
+emval.innerHTML = " Enter Valid Email";
+emval.style.color = "green";
+}
+function contactReq(){
+contact.innerHTML = " Enter Valid Contact Number";
+contact.style.color = "green";
+}
+function ageReq(){
+age.innerHTML = " Enter Valid Age";
+age.style.color = "green";
+}
+function valName(){
+var c=0;
+let s = document.forms["register"]["sname"].value;
+if(s===null || s=="" ){
+nval.innerHTML = " Please provide your Name";
+nval.style.color = "red";
+}
+for(i=0;i<s.length;i++){
+if(s[i]>='0' && s[i]<='9' || s[i]>='!' && s[i]<='@'){
+nval.innerHTML=" Enter Valid Name";
+nval.style.color="red";
+}
+else{
+c=c+1;
+}
+}
+if(c==s.length && s!=""){
+nval.innerHTML=" Valid Name Entered";
+nval.style.color="green";
+isNameValid = true;
+}
+}
+function valEmail(){
+evalue=document.forms["register"]["Email"].value;
+if( evalue == "" ) {
+emval.innerHTML=" Please provide your Email";
+emval.style.color="red";
+}
+else {
+var emailID = evalue;
+atpos = emailID.indexOf("@");
+dotpos = emailID.lastIndexOf(".");
+if (atpos<1 || dotpos<atpos+2 ||
+dotpos+2>=emailID.length){
+emval.innerHTML=" Please enter a valid e-mail ID";
+emval.style.color="red";
+}
+else{
+emval.innerHTML = " Valid Email Entered";
+emval.style.color = "green";
+isEmailValid = true;
+}
+}
+}
+function valContact(){
+let cvalue = document.forms["register"]["Contact"].value;
+if( cvalue == "") {
+contact.innerHTML= " Please provide your Contact number";
+contact.style.color = "red";
+}
+else if( isNaN( cvalue ) || cvalue.length != 10 ) {
+contact.innerHTML= " Contact number must contain 10 digits.";
+contact.style.color = "red";
+}
+else {
+contact.innerHTML = " Valid Number Entered";
+contact.style.color = "green";
+isContactValid = true;
+}
+}
+function valage(){
+var c=0;
+let s = document.forms["register"]["Age"].value;
+if(s===null || s=="" ){
+age.innerHTML = " Please provide your Age";
+age.style.color = "red";
+}
+if(s>18 && s<30){
+age.innerHTML=" Valid Age Entered";
+age.style.color="green";
+isAgeValid = true;
+}
+}
+function xval(){
+var c=0;
+let s = document.forms["register"]["xmarks"].value;
+if(s===null || s=="" ){
+xmar.innerHTML = " Please provide your Aggregate/CGPA";
+xmar.style.color = "red";
+}
+if(s<=100){
+xmar.innerHTML=" Valid Aggregate/CGPA Entered";
+xmar.style.color="green";
+isxValid = true;
+}
+}
+function xiival(){
+var c=0;
+let s = document.forms["register"]["xiimarks"].value;
+if(s===null || s=="" ){
+xiimar.innerHTML = " Please provide your Aggregate/CGPA";
+xiimar.style.color = "red";
+}
+if(s<=100){
+xiimar.innerHTML=" Valid Aggregate/CGPA Entered";
+xiimar.style.color="green";
+isxiiValid = true;
+}
+}
+function cardval(){
+let cvalue = document.forms["register"]["Contact"].value;
+if( cvalue == "") {
+cardd.innerHTML= " Please provide your Card number";
+cardd.style.color = "red";
+}
+else if( isNaN( cvalue ) || cvalue.length != 16 ) {
+cardd.innerHTML= " Card number must contain 16 digits.";
+cardd.style.color = "red";
+}
+else {
+cardd.innerHTML = " Valid Number Entered";
+cardd.style.color = "green";
+iscardValid = true;
+}
+}
+function upival(){
+evalue=document.forms["register"]["Email"].value;
+if( evalue == "" ) {
+upii.innerHTML=" Please provide your UPI ID";
+upii.style.color="red";
+}
+else {
+atpos = 0
+atpos = emailID.indexOf("@");
+if (atpos == 0){
+upii.innerHTML=" Please enter a valid UPI ID";
+upii.style.color="red";
+}
+else{
+upii.innerHTML = " Valid UPI ID Entered";
+upii.style.color = "green";
+isupiValid = true;
+}
+}
+}
+</script>
+</body>
+</html>
